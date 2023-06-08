@@ -1,7 +1,7 @@
 ---
-title: "Çalışmanızın Başlığı"
+title: "Türkiye'de Eğitim ve Yoksulluk ilişkisi"
 author: 
-  - İsim Soyisim[^1]
+  - Muhammed Daş[^1]
 bibliography: ../bibliography/biblio.bib
 csl: ../csl/apa-tr.csl
 header-includes:
@@ -34,7 +34,7 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 <!-- ============================== NOTLAR ================================= -->
 <!-- ======================================================================= -->
-[^1]: Öğrenci Numarası, [Github Repo](https://github.com/KULLANICI_ADINIZ/REPO_ADINIZ)
+[^1]: 20080270, [Github Repo](https://github.com/KULLANICI_ADINIZ/REPO_ADINIZ)
 
 # Final Hakkında Önemli Bilgiler
 
@@ -47,17 +47,23 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 \colorbox{WildStrawberry}{Daha fazla bilgi için proje klasöründeki README.md dosyasını okuyunuz.}
 
 # Giriş
-Bu taslak size proje ödevinizi yazarken yardımcı olması amacıyla oluşturulmuştur. Ödevlerinizde, makalelerinizde, sunumlarınızda ve projelerinizde kullandığınız tüm bilgi kaynaklarına atıfta bulunmalısınız. Alıntı ve gönderme yapmak okuyuculara çalışmanızda kullandığınız/başvurduğunuz  kaynaklara ulaşma imkanı sağlar. **Her ne kadar kendi sözlerinizi kullanıyor olsanız da, başkalarına ait fikirleri çalışmanızda aktarıyorsanız bu fikirlerin kaynağını belgelemek zorundasınız. Aksi takdirde akademik intihal yapmış olursunuz.** Yazım konusunda @aydinonat:2007'ye başvurabilirsiniz. 
-
-
-Proje ödevinizde yer alan başlıkların bu metinde yer alan başlıkları kesinlikle içermesi gerekmektedir. Burada kullanılan başlıklar haricinde farklı alt başlıklar da kullanabilirsiniz. Projenizi yazarken bu dosyayı taslak olarak kullanıp içeriğini projenize uyarlayınız.
-
+Tüm Dünya’da olduğu gibi Türkiye’de de yoksulluk başlıca sorunlardandır. Bununla beraber son yıllarda hızla artan yoksulluk ile birlikte hem ulusal hem de uluslararası düzeyde yoksulluğu önlemek amacıyla çeşitli politikalar uygulanmaktadır. Bunların en başında gösterebileceğimiz eğitim politikaları yer  almaktadır.(@alpaydin2008turkiye) .Bu yüzden proje önerimin araştırma konusu olarak da Türkiye’de eğitim ve yoksulluk arasında ne tür bir ilişki olduğunu incelemeyi seçtim. Proje önerimin veri setini Türkiye İstatistik Kurumu’nun web sitesinden elde ettim. Veri setinde yoksul sayısı ve yoksulluk oranı başlıkları altında Türkiye’de nüfusun eğitim düzeyleri ve okur-yazar olma durumları gibi değişkenler bulunmaktadır. Bununla birlikte yoksulluk riskleri de veri setinde yer almaktadır. Bu veriler 2006-2021 yılları arası incelenmiş olup 50 gözleme dayanmaktadır.
 ## Çalışmanın Amacı
-Bu bölümde yaptığınız çalışmanın amacından ve öneminden birkaç paragraf ile bahsediniz.
-
+ Çalışma, Türkiye’de yoksulluğun ve eğitimin birbirleri arasındaki ilişkisini, bu ilişkinin ne tür bir ilişki olduğunu ortaya koymayı ve analiz edebilmeyi konu edinmiştir.
+   
+   Yoksulluk ve eğitim üzerine birçok çalışma bulunmaktadır. Bu çalışma, bu konu ile ilgili yayınlanmış makaleleri, kitapları, grafikleri ve diğer verileri de inceleyip analize dahil edebilmeyi hedeflemektedir. Bununla birlikte Türkiye gibi gelişmekte olan ülkeleri ve diğer Avrupa ülkelerini de inceleyip veri setinin ortaya koymuş olduğu eğitimin yoksulluğu azaltmadaki etkin rolünü gösterebilmek ve desteklemektir. Bunun sonucunda konu ile ilgili bulunan veriler ışığında bu ilişkiyi incelemek ve istatistiksel analiz yapabilmeyi amaçlamaktadır.
 ## Literatür 
 
-Bu bölümde konu ile ilgili olarak okuduğunuz makaleleri referans vererek tartışınız. **Her makaleyi ayrı başlık altında tek tek özetlemeyiniz.** Literatür taramasında **en az altı** makaleye atıf yapılması ve bu makalelerden **en az ikisinin İngilizce** olması gerekmektedir.
+Eğitim ve yoksulluk araındaki ilişkiyi incelemeden önce kısaca tanımlarını yapmamız gerekir.Yoksulluk mutlak yoksulluk ve göreli yoksulluk olarak ikiye ayrılır. Mutlak yoksulluk, insan varlığının devamı için gerekli olan yiyecek, içecek ve barınma gibi en temel ihtiyaçlarının karşılanamaması durumudur. Göreli yoksulluk ise, insanların temel ihtiyaçlarını karşılayabilmesine rağmen kişisel kaynaklarının yetersizliği nedeniyle toplumun genel refah düzeyinin altında kalması durumudur. Eğitim, her ne kadar görüş birliğine varılan tek bir tanımı olmasa da eğitimi genel olarak, kültürün genç kuşaklara aktarılması ve toplumun varlığını sürdürebilmesi için gerekli sosyal değişimleri yapabilecek yaratıcı kişilerin yetiştirilmesi olarak tanımlamak mümkündür[@ccokgezen2015gelicsmekte].
+  
+   Literatür incelendiğinde eğitimin yoksulluk üzerinde dramatik bir etkiye sahip olduğu görülmektedir(@bilenkisi2015impact)     
+Yoksulluğa sebep olan birçok faktör mevcuttur. Bunlar arasında ön plana çıkanlar ise; ekonomik, işsizlik, göç, cinsiyet ve de eğitimdir. Yoksulluk olgusu tüm yönleriyle incelendiğinde, en önemli nedenin eğitimden kaynaklandığı söylenebilir. Bu bağlamda eğitimin ekonomi ve işsizlikle doğrudan ilişkili olduğu ifade edilebilir.Bu bağlamda söz konusu bireylerin yoksulluğun kısır döngüsüne girmelerine engel olma noktasında alınacak tedbirler ve uygulanacak politikalar hayati önem taşımaktadır. Yoksulluğun nesilden nesille bir miras olarak bırakılmamasın tek yolu ise eğitim seviyesinin yükseltilmesinden geçmektedir [@ocalguncel]
+Öte yandan eğitim, insanların ekonomiye ve topluma katılma becerileri kazanmalarına yardımcı olur.Bulguları göz önüne alındığında, eğitim özünde geliri eşit dağıtmak için bir mihenk taşıdır ve yoksullara ekonomik büyümeden daha fazla yararlanma fırsatı sağlar.Bu nedenle eğitim politikaları, örgün ve yaygın eğitime katılımı artırmaya çalışırken, yoksullukla mücadelede önemli bir rol üstlenmeyi hedeflemeli (@bilenkisi2015impact)
+
+  Sonuç olarak, yoksulluk ve eğitim birbiriyle ters orantılıdır.
+Aynı zamanda eğitimden yoksulluğa doğru ters nedensellik olabileceği gibi, yoksulluktan eğitime doğru da eşit derecede nedensellik olabilir. Örneğin, eğitime yapılan yatırım, insanların üretkenliğinin yanı sıra ücretleri veya geliri artırarak yoksulluğu azaltır. Ayrıca eğitim, insanların daha etkin üretim yapma kapasitelerini geliştiren bazı gerekli becerileri edinmelerini sağlar. Öte yandan yoksulluk, öğrencilere sağlanan kaynakları etkileyerek eğitimin kalitesini ve eğitime eşit erişimi kısıtlamaktadır[@citak2020causal]
+
+  Yoksulluk nedeniyle bireylerin yetersiz eğitim alması bir yandan yoksulluğu devam ettirici bir etki yaratırken; bir diğer yandan bu bireylerin topluma katkılarının da düşük düzeyde kalmasına neden olarak ülkenin kalkınmasını olumsuz yönde etkilemektedir. Bu nedenle yoksullukla mücadelede eğitim konusu sosyal politika alanında ve ekonomik kalkınmada önemli bir unsuru teşkil etmektedir[@erikli2016gencc]
 
 # Veri 
 Bu bölümde çalışmanızda kullandığınız veri setinin kaynağını, ham veri üzerinde herhangi bir işlem yaptıysanız bu işlemleri ve veri seti ile ilgili özet istatistikleri tartışınız. Bu bölümde tüm değişkenlere ait özet istatistikleri (ortalama, standart sapma, minimum, maksimum, vb. değerleri) içeren bir tablo (Tablo \ref{tab:ozet}) olması zorunludur. Tablolarınıza gerekli göndermeleri bir önceki cümlede gösterildiği gibi yapınız. [@perkins:1991]
@@ -66,8 +72,8 @@ Analize ait R kodları bu bölümde başlamalıdır. Bu bölümde veri setini R'
 
 ```{r}
 library(tidyverse)
-library(here)
-survey <- read_csv(here("../data/survey.csv"))
+survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
+tibble(expand.grid(Illiterate=c( '2010', '2011' )))
 ```
 
 Rmd dosyasında kod bloklarının bazılarında kod seçeneklerinin düzenlendiğine dikkat edin. 
