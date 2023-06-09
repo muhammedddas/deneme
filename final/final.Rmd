@@ -34,7 +34,7 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 <!-- ============================== NOTLAR ================================= -->
 <!-- ======================================================================= -->
-[^1]: 20080270, [Github Repo](https://github.com/KULLANICI_ADINIZ/REPO_ADINIZ)
+[^1]: 20080270, [Github Repo](https://github.com/muhammedddas/deneme.git/muhammedddas/deneme)
 
 # Final Hakkında Önemli Bilgiler
 
@@ -91,7 +91,7 @@ st_options(lang = "tr")
 
 ```{r results='asis', echo=FALSE}
 survey %>%
-  select("Illiterate","Literate with no degree","Literate with no degree", "Less than high school","High school or equivalent", "Higher education", "Illiterate" ) %>% 
+  select("Illiterate","Literate with no degree", "Less than high school","High school or equivalent", "Higher education", "Illiterate" ) %>% 
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>% 
   xtable(caption = "Özet İstatistikler",
          label = "tab:ozet",
