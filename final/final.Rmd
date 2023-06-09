@@ -73,14 +73,14 @@ Analize ait R kodları bu bölümde başlamalıdır. Bu bölümde veri setini R'
 ```{r}
 library(tidyverse)
 survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
-tibble(expand.grid(Illiterate=c( '2010', '2011' )))
+tibble(expand.grid(Illiterate=c( 'Less than high school', '2011' )))
 ```
 
 Rmd dosyasında kod bloklarının bazılarında kod seçeneklerinin düzenlendiğine dikkat edin. 
 
 ```{r, echo=FALSE}
 library(xtable) 
-# devtools::install_github("emraher/summarytools")
+# devtools::install_github("muhammedddas/deneme")
 library(summarytools)
 st_options(lang = "tr")
 ```
@@ -89,7 +89,7 @@ st_options(lang = "tr")
 
 ```{r results='asis', echo=FALSE}
 survey %>%
-  select("sex", "credits", "handedness", "height", "handspan") %>% 
+  select("Illiterate", "Literate with no degree", "Less than high school") %>% 
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>% 
   xtable(caption = "Özet İstatistikler",
          label = "tab:ozet",
