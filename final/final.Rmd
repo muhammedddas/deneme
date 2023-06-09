@@ -72,8 +72,10 @@ Analize ait R kodları bu bölümde başlamalıdır. Bu bölümde veri setini R'
 
 ```{r}
 library(tidyverse)
+library(here)
 survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
 tibble(expand.grid(Illiterate=c( 'Less than high school', '2011' )))
+glimpse(survey)
 ```
 
 Rmd dosyasında kod bloklarının bazılarında kod seçeneklerinin düzenlendiğine dikkat edin. 
@@ -89,7 +91,7 @@ st_options(lang = "tr")
 
 ```{r results='asis', echo=FALSE}
 survey %>%
-  select("Illiterate", "Literate with no degree", "Less than high school") %>% 
+  select("Illiterate","Literate with no degree","Literate with no degree", "Less than high school","High school or equivalent", "Higher education", "Illiterate" ) %>% 
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>% 
   xtable(caption = "Özet İstatistikler",
          label = "tab:ozet",
