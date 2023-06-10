@@ -75,7 +75,7 @@ library(tidyverse)
 library(here)
 survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
 tibble(expand.grid(Illiterate=c( 'Less than high school', '2011' )))
-glimpse(survey)
+glimpse(survey) 
 ```
 
 Rmd dosyasında kod bloklarının bazılarında kod seçeneklerinin düzenlendiğine dikkat edin. 
