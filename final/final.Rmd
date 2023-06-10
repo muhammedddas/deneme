@@ -92,14 +92,16 @@ st_options(lang = "tr")
 ```{r results='asis', echo=FALSE} 
 echo=FALSE
 survey %>%
-  select("\nIlliterate...4","\nLiterate with no degree...5","Less than          high school","\nHigh school or equivalent...7","\nHigher           education...8",) %>% 
+  select("\nIlliterate...4","\nLiterate with no degree...5","Less than          high school","\nHigh school or equivalent...7","\nHigher           education...8", "\nIlliterate...10", "\nLiterate with no degree...11", "\nLess than          high school","\nHigh school or equivalent...13","\nHigher           education...14",) %>% 
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>% 
   xtable(caption = "Özet İstatistikler",
          label = "tab:ozet",
          align = c("l", "c", "c", "c", "c", "c")) %>% 
   print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
 ```
-
+```
+names(survey)
+```
 
 # Yöntem ve Veri Analizi
 
