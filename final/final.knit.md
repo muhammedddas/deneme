@@ -27,9 +27,7 @@ biblio-style: apalike
 abstract: |
   Bu bölümde çalışmanızın özetini yazınız.
 ---
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
-```
+
 
 <!-- ======================================================================= -->
 <!-- ============================== NOTLAR ================================= -->
@@ -70,34 +68,65 @@ Bu bölümde çalışmanızda kullandığınız veri setinin kaynağını, ham v
 
 Analize ait R kodları bu bölümde başlamalıdır. Bu bölümde veri setini R'a aktaran ve özet istatistikleri üreten kodlar yer almalıdır.
 
-```{r}
+
+```r
 library(tidyverse)
 library(here)
 survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
 tibble(expand.grid(Illiterate=c( 'Less than high school', '2011' )))
+```
+
+```
+## # A tibble: 2 x 1
+##   Illiterate           
+##   <fct>                
+## 1 Less than high school
+## 2 2011
+```
+
+```r
 glimpse(survey)
+```
+
+```
+## Rows: 48
+## Columns: 15
+## $ years                               <dbl> 2006, NA, NA, 2007, NA, NA, 2008, ~
+## $ `15 age +  Risk of poverty`         <chr> NA, "%50 - 50%", "%60 - 60%", NA, ~
+## $ `number of poors {thousand person}` <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA~
+## $ `\nIlliterate...4`                  <chr> NA, "1 969", "2 486", NA, "1 842",~
+## $ `\nLiterate with no degree...5`     <chr> NA, "1 004", "1 327", NA, "919", "~
+## $ `Less than          high school`    <chr> NA, "3 783", "5 605", NA, "3 392",~
+## $ `\nHigh school or equivalent...7`   <chr> NA, "463", "825", NA, "486", "807"~
+## $ `\nHigher           education...8`  <dbl> NA, 24, 48, NA, 31, 61, NA, 29, 51~
+## $ `poverty rate  %`                   <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA~
+## $ `\nIlliterate...10`                 <dbl> NA, 33, 41, NA, 31, 40, NA, 30, 30~
+## $ `\nLiterate with no degree...11`    <dbl> NA, 28, 37, NA, 25, 35, NA, 24, 34~
+## $ `\nLess than          high school`  <dbl> NA, 14, 21, NA, 12, 20, NA, 13, 21~
+## $ `\nHigh school or equivalent...13`  <dbl> NA, 5, 10, NA, 5, 9, NA, 5, 8, NA,~
+## $ `\nHigher           education...14` <dbl> NA, 1, 1, NA, 1, 2, NA, 1, 1, NA, ~
+## $ ...15                               <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA~
 ```
 
 Rmd dosyasında kod bloklarının bazılarında kod seçeneklerinin düzenlendiğine dikkat edin. 
 
-```{r, echo=FALSE}
-library(xtable) 
-# devtools::install_github("muhammedddas/deneme")
-library(summarytools)
-st_options(lang = "tr")
-```
+
 
 `echo=FALSE` seçeneği ile kodların türetilen pdf dosyasında görünmesini engelleyin ve sonuçlarınızı tablo halinde rapor edin.
 
-```{r results='asis', echo=FALSE}
-survey %>%
-  select("\nIlliterate...4","\nLiterate with no degree...5","Less than          high school","\nHigh school or equivalent...7","\nHigher           education...8",) %>% 
-  descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>% 
-  xtable(caption = "Özet İstatistikler",
-         label = "tab:ozet",
-         align = c("l", "c", "c", "c", "c", "c")) %>% 
-  print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
-```
+\begin{table}[ht]
+\centering
+\caption{Özet İstatistikler} 
+\label{tab:ozet}
+\begin{tabular}{lccccc}
+  \toprule
+ & Ortalama & Std.Sap & Min & Medyan & Mak \\ 
+  \midrule
+
+Higher           education...8 & 172.34 & 142.19 & 24.00 & 122.00 & 538.00 \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
 
 
 # Yöntem ve Veri Analizi
