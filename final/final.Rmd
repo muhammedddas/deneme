@@ -99,9 +99,7 @@ survey %>%
          align = c("l", "c", "c", "c", "c", "c")) %>% 
   print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
 ```
-```
-names(survey)
-```
+
 
 # Yöntem ve Veri Analizi
 
