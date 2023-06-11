@@ -76,6 +76,8 @@ library(here)
 survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
 tibble(expand.grid(Illiterate=c( 'Less than high school', '2011' )))
 glimpse(survey) 
+
+
 ```
 
 Rmd dosyasında kod bloklarının bazılarında kod seçeneklerinin düzenlendiğine dikkat edin. 
@@ -91,6 +93,18 @@ st_options(lang = "tr")
 
 ```{r results='asis', echo=FALSE} 
 echo=FALSE
+
+cy <- readr::read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
+glimpse(cy)
+
+cy <- cy %>% 
+  janitor::clean_names()
+
+cy <- cy %>% 
+  rename_with(~str_remove(.x, "_"))
+
+names(cy)
+
 survey %>%
   select("years","15 age +  Risk of poverty","number of poors {thousand person}", "\nIlliterate...4" , "\nLiterate with no degree...5" , "Less than          high school","\nHigh school or equivalent...7" , "\nHigher           education...8", "\nIlliterate...10" , "\nLiterate with no degree...11" , "\nLess than          high school" , "\nHigh school or equivalent...13","\nHigher           education...14") %>% 
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>%
@@ -98,10 +112,8 @@ xtable(caption = "Özet İstatistikler",
          label = "tab:ozet",
          align = c("l", "c", "c", "c", "c", "c")) %>% 
   print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
-rename(survey, Years=years)
 
-  
-         
+
 ```
 
 
@@ -112,7 +124,8 @@ $$
 Y_t = \beta_0 + \beta_N N_t + \beta_P P_t + \beta_I I_t + \varepsilon_t
 $$
 ```
-
+df <- read.csv(survey)
+colnames(df) <- c ("Years", "ikinci")
 
 ```
 
