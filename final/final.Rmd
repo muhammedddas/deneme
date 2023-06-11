@@ -80,6 +80,36 @@ glimpse(survey)
 
 ```
 
+```
+cy <- readr::read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
+glimpse(cy)
+
+cy <- cy %>% 
+  janitor::clean_names()
+ 
+ cy <- cy %>% 
+  rename_with(~str_remove(.x, "_"))
+
+names(cy)
+
+cy_long <- pivot_longer(cy, years, names_to = "crop")
+cy_long
+
+cy_long <- cy_long %>% 
+  mutate(code = ifelse(is.na(x15), ".", x15))
+
+cy_long %>% 
+  filter(x15 == ".") 
+
+
+View(cy_long %>% filter(x15 == "."))
+
+ cy_long %>% filter(x15 == ".")
+ glimpse(cy)
+
+```
+
+
 Rmd dosyasında kod bloklarının bazılarında kod seçeneklerinin düzenlendiğine dikkat edin. 
 
 ```{r, echo=FALSE}
@@ -99,14 +129,15 @@ glimpse(cy)
 
 cy <- cy %>% 
   janitor::clean_names()
-
-cy <- cy %>% 
+ cy <- cy %>% 
   rename_with(~str_remove(.x, "_"))
 
 names(cy)
 
-survey %>%
-  select("years","15 age +  Risk of poverty","number of poors {thousand person}", "\nIlliterate...4" , "\nLiterate with no degree...5" , "Less than          high school","\nHigh school or equivalent...7" , "\nHigher           education...8", "\nIlliterate...10" , "\nLiterate with no degree...11" , "\nLess than          high school" , "\nHigh school or equivalent...13","\nHigher           education...14") %>% 
+cy %>%
+  select("years","x15age_risk_of_poverty","numberof_poors_thousand_person", "illiterate4" , "literatewith_no_degree_5", "lessthan_high_school","highschool_or_equivalent_7" , "highereducation_8", "illiterate10" , "literatewith_no_degree_11" , "lessthan_high_school_2" , "highschool_or_equivalent_13","highereducation_14") %>% 
+ 
+  
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>%
 xtable(caption = "Özet İstatistikler",
          label = "tab:ozet",
