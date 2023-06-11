@@ -98,6 +98,7 @@ xtable(caption = "Özet İstatistikler",
          label = "tab:ozet",
          align = c("l", "c", "c", "c", "c", "c")) %>% 
   print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
+rename(survey, Years=years)
 
   
          
@@ -110,9 +111,7 @@ xtable(caption = "Özet İstatistikler",
 $$
 Y_t = \beta_0 + \beta_N N_t + \beta_P P_t + \beta_I I_t + \varepsilon_t
 $$
-
 ```
-
 
 
 ```
