@@ -135,7 +135,7 @@ cy <- cy %>%
 names(cy)
 
 cy %>%
-  select("years","x15age_risk_of_poverty","numberof_poors_thousand_person", "illiterate4" , "literatewith_no_degree_5", "lessthan_high_school","highschool_or_equivalent_7" , "highereducation_8", "illiterate10" , "literatewith_no_degree_11" , "lessthan_high_school_2" , "highschool_or_equivalent_13","highereducation_14") %>% 
+  select("years" ,"x15age_risk_of_poverty","numberof_poors_thousand_person", "illiterate4" , "literatewith_no_degree_5","lessthan_high_school","highschool_or_equivalent_7", "highereducation_8", "illiterate10" , "literatewith_no_degree_11" , "lessthan_high_school_2" , "highschool_or_equivalent_13","highereducation_14") %>% 
  
   
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>%
