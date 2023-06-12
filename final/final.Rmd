@@ -199,17 +199,6 @@ cy %>%
 
 
 
-ggscatter(cy, 
-          x = "illiterate10", 
-          y = "highereducation_14", 
-          color = "steelblue",
-          add = "reg.line", 
-          add.params = list(color = "blue"),
-          conf.int = TRUE, 
-          cor.coef = TRUE, 
-          cor.coef.coord = c(15, 1),
-          cor.method = "pearson",
-          ggtheme = theme_minimal())
 
 shapiro.test(cy$illiterate10)
 
@@ -227,6 +216,17 @@ tibble(x = rnorm(100)) %>%
 
 ```
 
+işlnemeyen ggscatter(cy, 
+          x = "illiterate10", 
+          y = "highereducation_14", 
+          color = "steelblue",
+          add = "reg.line", 
+          add.params = list(color = "blue"),
+          conf.int = TRUE, 
+          cor.coef = TRUE, 
+          cor.coef.coord = c(15, 1),
+          cor.method = "pearson",
+          ggtheme = theme_minimal())
 
 # Sonuç
 Bu bölümde çalışmanızın sonuçlarını özetleyiniz. Sonuçlarınızın başlangıçta belirlediğiniz araştırma sorusuna ne derece cevap verdiğini ve ileride bu çalışmanın nasıl geliştirilebileceğini tartışınız.
