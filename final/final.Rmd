@@ -75,14 +75,14 @@ library(tidyverse)
 library(here)
 survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
 tibble(expand.grid(Illiterate=c( 'Less than high school', '2011' )))
-glimpse(survey) 
 
 
-```
 
 ```
+
+```{r results='asis', echo=FALSE}
 cy <- readr::read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
-glimpse(cy)
+
 
 cy <- cy %>% 
   janitor::clean_names()
@@ -102,7 +102,7 @@ cy_long %>%
   filter(x15 == ".") 
 
 
-View(cy_long %>% filter(x15 == "."))
+
 
  cy_long %>% filter(x15 == ".")
  glimpse(cy)
@@ -125,14 +125,14 @@ st_options(lang = "tr")
 echo=FALSE
 
 cy <- readr::read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
-glimpse(cy)
+
 
 cy <- cy %>% 
   janitor::clean_names()
  cy <- cy %>% 
   rename_with(~str_remove(.x, "_"))
 
-names(cy)
+
 
 cy %>%
   select("years" ,"x15age_risk_of_poverty","numberof_poors_thousand_person", "illiterate4" , "literatewith_no_degree_5", "lessthan_high_school","highschool_or_equivalent_7", "highereducation_8", "illiterate10" , "literatewith_no_degree_11" , "lessthan_high_school_2" , "highschool_or_equivalent_13","highereducation_14") %>% 
@@ -154,9 +154,22 @@ xtable(caption = "Özet İstatistikler",
 $$
 Y_t = \beta_0 + \beta_N N_t + \beta_P P_t + \beta_I I_t + \varepsilon_t
 $$
-```
-df <- read.csv(survey)
-colnames(df) <- c ("Years", "ikinci")
+
+
+
+```{r plot, echo=FALSE, fig.align='center', fig.cap='Grafik 1'}
+cy %>% 
+ggplot(aes(x = illiterate10 , y = highereducation_14 )) +
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous("illiterate10") + 
+  scale_y_continuous("highereducation_14")
+
+ggplot(cy) +
+  aes(x =illiterate10  ) +
+  geom_histogram()
+
+
 
 ```
 
