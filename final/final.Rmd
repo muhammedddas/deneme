@@ -148,15 +148,52 @@ $$
 
 ```{r plot, echo=FALSE, fig.align='center', fig.cap='Grafik 1'}
 cy %>% 
-ggplot(aes(x = illiterate10 , y = highereducation_14 )) +
-  geom_point() +
+ggplot(aes(x = highereducation_14  , y = illiterate10 )) +
+  geom_point(na.rm = TRUE) +
   geom_smooth() +
-  scale_x_continuous("illiterate10") + 
-  scale_y_continuous("highereducation_14")
+  scale_x_continuous("highereducation_14") + 
+  scale_y_continuous("illiterate10")
 
 ggplot(cy) +
   aes(x =illiterate10  ) +
-  geom_histogram()
+  geom_histogram( na.rm = TRUE)
+
+cy %>% 
+ggplot(aes(x = highereducation_8  , y = illiterate4 )) +
+  geom_point(na.rm = TRUE) +
+  geom_smooth() +
+  scale_x_continuous("highereducation_8") + 
+  scale_y_continuous("illiterate4")
+
+ggplot(cy) +
+  aes(x =highereducation_8  ) +
+  geom_histogram( na.rm = TRUE)
+
+
+ ggplot(cy, aes(x = highereducation_8 )) +
+  geom_histogram(bins = 5, na.rm = TRUE) +
+  scale_x_continuous(name = "highereducation oranı") +
+  scale_y_continuous(name = "illeration oranı") +
+  ggtitle(" Eğitimine göre yoksulluk histogramı")
+
+
+gtsummary::tbl_summary(cy)
+
+
+cy %>% 
+  select(literatewith_no_degree_5, highschool_or_equivalent_7, highereducation_8) %>% 
+  GGally::ggpairs()
+
+
+
+cy %>%
+  ggplot(aes(x = illiterate10)) +
+  geom_histogram(aes(y = ..density..),
+                 colour = "black", 
+                 fill = "white") +
+  geom_density(alpha = 0.5, 
+               fill = "#71f653") 
+
 
 
 
