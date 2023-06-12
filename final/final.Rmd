@@ -148,7 +148,7 @@ $$
 
 ```{r plot, echo=FALSE, fig.align='center', fig.cap='Grafik 1'}
 cy %>% 
-ggplot(aes(x = highereducation_14  , y = illiterate10 )) +
+ggplot(aes(x =highereducation_14  , y = illiterate10 )) +
   geom_point(na.rm = TRUE) +
   geom_smooth() +
   scale_x_continuous("highereducation_14") + 
@@ -194,6 +194,34 @@ cy %>%
   geom_density(alpha = 0.5, 
                fill = "#71f653") 
 
+
+
+
+
+
+ggscatter(cy, 
+          x = "illiterate10", 
+          y = "highereducation_14", 
+          color = "steelblue",
+          add = "reg.line", 
+          add.params = list(color = "blue"),
+          conf.int = TRUE, 
+          cor.coef = TRUE, 
+          cor.coef.coord = c(15, 1),
+          cor.method = "pearson",
+          ggtheme = theme_minimal())
+
+shapiro.test(cy$illiterate10)
+
+shapiro.test(cy$highereducation_14)
+
+
+tibble(x = rnorm(100)) %>% 
+  ggplot() +
+  aes(sample = x) +
+  stat_qq() +
+  stat_qq_line() +
+  labs(title = "Normal Dağılım için Q-Q Grafiği")
 
 
 
