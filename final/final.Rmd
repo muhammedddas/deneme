@@ -90,22 +90,11 @@ cy <- cy %>%
  cy <- cy %>% 
   rename_with(~str_remove(.x, "_"))
 
-names(cy)
-
-cy_long <- pivot_longer(cy, years, names_to = "crop")
-cy_long
-
-cy_long <- cy_long %>% 
-  mutate(code = ifelse(is.na(x15), ".", x15))
-
-cy_long %>% 
-  filter(x15 == ".") 
 
 
 
 
- cy_long %>% filter(x15 == ".")
- glimpse(cy)
+ 
 
 ```
 
