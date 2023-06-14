@@ -180,9 +180,16 @@ ggplot(cy) +
 gtsummary::tbl_summary(cy)
 
 
+
+
 cy %>% 
-  select(literatewith_no_degree_5, highschool_or_equivalent_7, highereducation_8) %>% 
+  select(illiterate10, highereducation_14) %>% 
   GGally::ggpairs()
+
+
+
+
+
 
 
 
@@ -227,6 +234,19 @@ işlnemeyen ggscatter(cy,
           cor.coef.coord = c(15, 1),
           cor.method = "pearson",
           ggtheme = theme_minimal())
+          
+          
+          
+          
+          
+````{r results='asis', echo=FALSE}
+
+
+model <- lm(illiterate4 ~  highereducation_8, data = cy, na.action = na.omit)
+summary(model)
+
+ 
+```
 
 # Sonuç
 Bu bölümde çalışmanızın sonuçlarını özetleyiniz. Sonuçlarınızın başlangıçta belirlediğiniz araştırma sorusuna ne derece cevap verdiğini ve ileride bu çalışmanın nasıl geliştirilebileceğini tartışınız.
