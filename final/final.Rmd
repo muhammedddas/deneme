@@ -183,7 +183,7 @@ gtsummary::tbl_summary(cy)
 
 
 cy %>% 
-  select(illiterate10, highereducation_14) %>% 
+  select(illiterate4, highereducation_8) %>% 
   GGally::ggpairs()
 
 
@@ -218,35 +218,47 @@ tibble(x = rnorm(100)) %>%
   stat_qq() +
   stat_qq_line() +
   labs(title = "Normal Dağılım için Q-Q Grafiği")
+```
 
 
+
+
+          
+          
+          
+          
+```{r results='asis', echo=FALSE}     
+
+cy %>%
+ select(illiterate4, lessthan_high_school , highereducation_8)
+
+glimpse(cy)
+
+cy %>% 
+  ggplot(aes(illiterate4, highereducation_8)) +
+  geom_point(na.rm = TRUE) +
+  geom_smooth() 
+
+
+
+score_mod <- lm(illiterate4 ~  highereducation_8 , data = cy)
+
+summary(score_mod)
+
+
+coefficients <- coef(score_mod)  # Katsayıları al
+intercept <- coefficients[1]  # Sabit (intercept) katsayısını al
+coef_vector <- coefficients[-1]  # Bağımsız değişkenlerin katsayılarını al
+
+independent_vars <- names(coef_vector)  # Bağımsız değişkenlerin isimlerini al
+coef_labels <- paste0(independent_vars, " * ", round(coef_vector, 4))  # Bağımsız değişkenleri katsayılarla birleştir
+
+equation <- paste("illiterate4 =", round(intercept, 4), "+", paste(coef_labels, collapse = " + "))  # Denklemi oluştur
+
+print(equation)
 
 ```
 
-işlnemeyen ggscatter(cy, 
-          x = "illiterate10", 
-          y = "highereducation_14", 
-          color = "steelblue",
-          add = "reg.line", 
-          add.params = list(color = "blue"),
-          conf.int = TRUE, 
-          cor.coef = TRUE, 
-          cor.coef.coord = c(15, 1),
-          cor.method = "pearson",
-          ggtheme = theme_minimal())
-          
-          
-          
-          
-          
-````{r results='asis', echo=FALSE}
-
-
-model <- lm(illiterate4 ~  highereducation_8, data = cy, na.action = na.omit)
-summary(model)
-
- 
-```
 
 # Sonuç
 Bu bölümde çalışmanızın sonuçlarını özetleyiniz. Sonuçlarınızın başlangıçta belirlediğiniz araştırma sorusuna ne derece cevap verdiğini ve ileride bu çalışmanın nasıl geliştirilebileceğini tartışınız.
