@@ -257,8 +257,11 @@ equation <- paste("illiterate4 =", round(intercept, 4), "+", paste(coef_labels, 
 
 
 
-
 print(equation)
+
+
+ggplot(cy, aes(x=illiterate4, y=highereducation_8)) +
+  geom_line()
 
 ```
 
