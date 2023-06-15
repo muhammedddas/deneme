@@ -255,6 +255,9 @@ coef_labels <- paste0(independent_vars, " * ", round(coef_vector, 4))  # Bağım
 
 equation <- paste("illiterate4 =", round(intercept, 4), "+", paste(coef_labels, collapse = " + "))  # Denklemi oluştur
 
+
+
+
 print(equation)
 
 ```
