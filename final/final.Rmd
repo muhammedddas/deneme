@@ -66,15 +66,15 @@ Aynı zamanda eğitimden yoksulluğa doğru ters nedensellik olabileceği gibi, 
   Yoksulluk nedeniyle bireylerin yetersiz eğitim alması bir yandan yoksulluğu devam ettirici bir etki yaratırken; bir diğer yandan bu bireylerin topluma katkılarının da düşük düzeyde kalmasına neden olarak ülkenin kalkınmasını olumsuz yönde etkilemektedir. Bu nedenle yoksullukla mücadelede eğitim konusu sosyal politika alanında ve ekonomik kalkınmada önemli bir unsuru teşkil etmektedir[@erikli2016gencc]
 
 # Veri 
-Bu bölümde çalışmanızda kullandığınız veri setinin kaynağını, ham veri üzerinde herhangi bir işlem yaptıysanız bu işlemleri ve veri seti ile ilgili özet istatistikleri tartışınız. Bu bölümde tüm değişkenlere ait özet istatistikleri (ortalama, standart sapma, minimum, maksimum, vb. değerleri) içeren bir tablo (Tablo \ref{tab:ozet}) olması zorunludur. Tablolarınıza gerekli göndermeleri bir önceki cümlede gösterildiği gibi yapınız. 
+  Veri setimi TÜİK’in Gelir ve Yaşam Koşulları adlı araştırma çalışmasındaki istatistiki tablolardan edindim. Veri setimde Türkiye’deki nüfusun okur-yazar olma, lise veya dengi, yükseköğretim mezunu gibi eğitim durumlarını gösteren değişkenlerle beraber yoksulluk risklerini gösteren yoksul sayıları ve oranları bulunmaktadır. Değişkenlerin isimlerini özet tabloya ve grafiklere aktarmadan önce clean-names fonksiyonu özel karakterleri düzenledim. Sonrasında ise rename with fonksiyonu özel karakterlerde tekrardan bir düzenlemeye giderek değişkenlerde daha sade bir adlandırma yaptım ve özet istatistikleri içeren tabloya aktardım.
+  Özet istatistiksel tabloya baktığımızda araştırma sorumu da destekleyen veriler bulunmaktadır.  Tablodan eğitim ve yoksulluk arasındaki ilişkide eğitim düzeyi arttıkça yoksul sayısının da düştüğünü görebiliyoruz. Mesela eğitim düzeyinin ilk seviyesi olan illiterate olan okur-yazar olmayanın ile son seviyesi highereducation olan yükseköğretimi kıyaslarsak bu farkı net bir biçimde görebiliyoruz. Keza yine highschool or equivalent ile literate with no degree değişkenlerini incelediğimizde aynı sonuca ulaşabiliyoruz. 
 
-Analize ait R kodları bu bölümde başlamalıdır. Bu bölümde veri setini R'a aktaran ve özet istatistikleri üreten kodlar yer almalıdır.
 
 ```{r, echo=FALSE} 
 library(tidyverse)
 library(here)
 survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
-tibble(expand.grid(Illiterate=c( 'Less than high school', '2011' )))
+tibble(expand.grid(years=c( '2011', '2010' )))
 
 
 
@@ -251,13 +251,15 @@ intercept <- coefficients[1]  # Sabit (intercept) katsayısını al
 coef_vector <- coefficients[-1]  # Bağımsız değişkenlerin katsayılarını al
 
 independent_vars <- names(coef_vector)  # Bağımsız değişkenlerin isimlerini al
-coef_labels <- paste0(independent_vars, " * ", round(coef_vector, 4))  # Bağımsız değişkenleri katsayılarla birleştir
+coef_labels <- paste0(independent_vars, " . ", round(coef_vector, 4))  # Bağımsız değişkenleri katsayılarla birleştir
 
 equation <- paste("illiterate4 =", round(intercept, 4), "+", paste(coef_labels, collapse = " + "))  # Denklemi oluştur
 
 
 
 print(equation)
+
+
 
 
 ggplot(cy, aes(x=illiterate4, y=highereducation_8)) +
