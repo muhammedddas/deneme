@@ -36,15 +36,7 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 [^1]: 20080270, [Github Repo](https://github.com/muhammedddas/deneme.git/muhammedddas/deneme)
 
-# Final Hakkında Önemli Bilgiler
 
-\colorbox{BurntOrange}{GITHUB REPO BAĞLANTINIZI BU DOSYANIN 37. SATIRINA YAZINIZ!}
-
-**Proje gönderimi, Github repo linki ile birlikte ekampus sistemine bir zip dosyası yüklenerek yapılacaktır. Sisteme zip dosyası yüklemezseniz ve Github repo linki vermezseniz ara sınav ve final sınavlarına girmemiş sayılırsınız.**
-
-**Proje klasörünüzü sıkıştırdıktan sonra (`OgrenciNumarasi.zip` dosyası) 9 Haziran 2023 23:59'a kadar *ekampus.ankara.edu.tr* adresine yüklemeniz gerekmektedir.**
-
-\colorbox{WildStrawberry}{Daha fazla bilgi için proje klasöründeki README.md dosyasını okuyunuz.}
 
 # Giriş
 Tüm Dünya’da olduğu gibi Türkiye’de de yoksulluk başlıca sorunlardandır. Bununla beraber son yıllarda hızla artan yoksulluk ile birlikte hem ulusal hem de uluslararası düzeyde yoksulluğu önlemek amacıyla çeşitli politikalar uygulanmaktadır. Bunların en başında gösterebileceğimiz eğitim politikaları yer  almaktadır.(@alpaydin2008turkiye) .Bu yüzden proje önerimin araştırma konusu olarak da Türkiye’de eğitim ve yoksulluk arasında ne tür bir ilişki olduğunu incelemeyi seçtim. Proje önerimin veri setini Türkiye İstatistik Kurumu’nun web sitesinden elde ettim. Veri setinde yoksul sayısı ve yoksulluk oranı başlıkları altında Türkiye’de nüfusun eğitim düzeyleri ve okur-yazar olma durumları gibi değişkenler bulunmaktadır. Bununla birlikte yoksulluk riskleri de veri setinde yer almaktadır. Bu veriler 2006-2021 yılları arası incelenmiş olup 50 gözleme dayanmaktadır.
@@ -75,32 +67,12 @@ Aynı zamanda eğitimden yoksulluğa doğru ters nedensellik olabileceği gibi, 
 library(tidyverse)
 library(here)
 survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
-tibble(expand.grid(years=c()))
+
 
 
 
 ```
 
-```{r results='asis', echo=FALSE}
-cy <- readr::read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
-
-
-cy <- cy %>% 
-  janitor::clean_names()
- 
- cy <- cy %>% 
-  rename_with(~str_remove(.x, "_"))
-
-
-
-
-
- 
-
-```
-
-
- 
 
 ```{r, echo=FALSE}
 library(xtable) 
@@ -125,7 +97,7 @@ cy <- cy %>%
 
 
 cy %>%
-  select("x15age_risk_of_poverty","numberof_poors_thousand_person", "illiterate4" , "literatewith_no_degree_5", "lessthan_high_school","highschool_or_equivalent_7", "highereducation_8", "illiterate10" , "literatewith_no_degree_11" , "lessthan_high_school_2" , "highschool_or_equivalent_13","highereducation_14") %>% 
+  select( "illiterate4" , "literatewith_no_degree_5", "lessthan_high_school","highschool_or_equivalent_7", "highereducation_8", "illiterate10" , "literatewith_no_degree_11" , "lessthan_high_school_2" , "highschool_or_equivalent_13","highereducation_14") %>% 
  
   
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>%
@@ -141,13 +113,8 @@ xtable(caption = "Özet İstatistikler",
 # Yöntem ve Veri Analizi
 
 
-$$
-Y_t = \beta_0 + \beta_N N_t + \beta_P P_t + \beta_I I_t + \varepsilon_t
-$$
+```{r, echo=FALSE, fig.align='center', fig.cap='Grafik 1'}
 
-
-
-```{r plot, echo=FALSE, fig.align='center', fig.cap='Grafik 1'}
 cy %>% 
 ggplot(aes(x =highereducation_8  , y = illiterate4 )) +
   geom_point(na.rm = TRUE) +
@@ -167,13 +134,11 @@ ggplot(aes(x = highschool_or_equivalent_13  , y = literatewith_no_degree_11)) +
   scale_x_continuous("Lise ve dengi okul yoksulluk oranı") + 
   scale_y_continuous("Bir okul bitirmeyen yoksulluk oranı")
 
-ggplot(cy) +
-  aes(x =highereducation_8  ) +
-  geom_histogram( na.rm = TRUE)
+
 
 
  ggplot(cy, aes(x = highereducation_8 )) +
-  geom_histogram(bins = 20, na.rm = TRUE) +
+  geom_histogram( na.rm = TRUE) +
   scale_x_continuous(name = "highereducation oranı") +
   scale_y_continuous(name = "illeration oranı") +
   ggtitle(" Eğitimine göre yoksulluk histogramı")
@@ -190,9 +155,8 @@ cy %>%
 
 
 
-ggplot(cy, aes(x=illiterate4, y=highereducation_8)) +
+ggplot(cy, aes(x= illiterate10, y=lessthan_high_school_2)) +
   geom_line()
-
 
 
 
@@ -213,8 +177,7 @@ cy %>%
 
 ```
 
-          
-          
+
           
 ```{r results='asis', echo=FALSE}     
 cy %>%
@@ -224,8 +187,8 @@ glimpse(cy)
 
 cy %>% 
   ggplot(aes(illiterate4, highereducation_8)) +
-  geom_point(na.rm = TRUE) +
-  geom_smooth() 
+  geom_point() +
+  geom_smooth(method = "lm") 
 
 
 
@@ -238,7 +201,7 @@ intercept <- coefficients[1]  # Sabit (intercept) katsayısını al
 coef_vector <- coefficients[-1]  # Bağımsız değişkenlerin katsayılarını al
 
 independent_vars <- names(coef_vector)  # Bağımsız değişkenlerin isimlerini al
-coef_labels <- paste0(independent_vars, " . ", round(coef_vector, 4))  # Bağımsız değişkenleri katsayılarla birleştir
+coef_labels <- paste0(independent_vars, " . " , round(coef_vector, 4))  # Bağımsız değişkenleri katsayılarla birleştir
 
 equation <- paste("illiterate4 =", round(intercept, 4), "+", paste(coef_labels, collapse = " + "))  # Denklemi oluştur
 
@@ -247,10 +210,6 @@ equation <- paste("illiterate4 =", round(intercept, 4), "+", paste(coef_labels, 
 print(equation)
 
 
-cy %>% 
-  ggplot(aes(illiterate4, highereducation_8)) +
-  geom_point() +
-  geom_smooth(method = "lm") 
 
 
 

@@ -1,0 +1,462 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\usepackage{polyglossia}
+\setmainlanguage{turkish}
+\usepackage{booktabs}
+\usepackage{caption}
+\captionsetup[table]{skip=10pt}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Türkiye'de Eğitim ve Yoksulluk ilişkisi},
+  pdfauthor={Muhammed Daş},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Türkiye'de Eğitim ve Yoksulluk ilişkisi}
+\author{Muhammed Daş\footnote{20080270, \href{https://github.com/muhammedddas/deneme.git/muhammedddas/deneme}{Github Repo}}}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Bu bölümde çalışmanızın özetini yazınız.
+\end{abstract}
+
+\hypertarget{giriux15f}{%
+\section{Giriş}\label{giriux15f}}
+
+Tüm Dünya'da olduğu gibi Türkiye'de de yoksulluk başlıca sorunlardandır. Bununla beraber son yıllarda hızla artan yoksulluk ile birlikte hem ulusal hem de uluslararası düzeyde yoksulluğu önlemek amacıyla çeşitli politikalar uygulanmaktadır. Bunların en başında gösterebileceğimiz eğitim politikaları yer almaktadır.(ALPAYDIN (\protect\hyperlink{ref-alpaydin2008turkiye}{2008})) .Bu yüzden proje önerimin araştırma konusu olarak da Türkiye'de eğitim ve yoksulluk arasında ne tür bir ilişki olduğunu incelemeyi seçtim. Proje önerimin veri setini Türkiye İstatistik Kurumu'nun web sitesinden elde ettim. Veri setinde yoksul sayısı ve yoksulluk oranı başlıkları altında Türkiye'de nüfusun eğitim düzeyleri ve okur-yazar olma durumları gibi değişkenler bulunmaktadır. Bununla birlikte yoksulluk riskleri de veri setinde yer almaktadır. Bu veriler 2006-2021 yılları arası incelenmiş olup 50 gözleme dayanmaktadır.
+\#\# Çalışmanın Amacı
+Çalışma, Türkiye'de yoksulluğun ve eğitimin birbirleri arasındaki ilişkisini, bu ilişkinin ne tür bir ilişki olduğunu ortaya koymayı ve analiz edebilmeyi konu edinmiştir.
+
+Yoksulluk ve eğitim üzerine birçok çalışma bulunmaktadır. Bu çalışma, bu konu ile ilgili yayınlanmış makaleleri, kitapları, grafikleri ve diğer verileri de inceleyip analize dahil edebilmeyi hedeflemektedir. Bununla birlikte Türkiye gibi gelişmekte olan ülkeleri ve diğer Avrupa ülkelerini de inceleyip veri setinin ortaya koymuş olduğu eğitimin yoksulluğu azaltmadaki etkin rolünü gösterebilmek ve desteklemektir. Bunun sonucunda konu ile ilgili bulunan veriler ışığında bu ilişkiyi incelemek ve istatistiksel analiz yapabilmeyi amaçlamaktadır.
+\#\# Literatür
+
+Eğitim ve yoksulluk araındaki ilişkiyi incelemeden önce kısaca tanımlarını yapmamız gerekir.Yoksulluk mutlak yoksulluk ve göreli yoksulluk olarak ikiye ayrılır. Mutlak yoksulluk, insan varlığının devamı için gerekli olan yiyecek, içecek ve barınma gibi en temel ihtiyaçlarının karşılanamaması durumudur. Göreli yoksulluk ise, insanların temel ihtiyaçlarını karşılayabilmesine rağmen kişisel kaynaklarının yetersizliği nedeniyle toplumun genel refah düzeyinin altında kalması durumudur. Eğitim, her ne kadar görüş birliğine varılan tek bir tanımı olmasa da eğitimi genel olarak, kültürün genç kuşaklara aktarılması ve toplumun varlığını sürdürebilmesi için gerekli sosyal değişimleri yapabilecek yaratıcı kişilerin yetiştirilmesi olarak tanımlamak mümkündür(\protect\hyperlink{ref-ccokgezen2015gelicsmekte}{ÇOKGEZEN ve Erdene, 2015}).
+
+Literatür incelendiğinde eğitimin yoksulluk üzerinde dramatik bir etkiye sahip olduğu görülmektedir(Bilenkisi vd. (\protect\hyperlink{ref-bilenkisi2015impact}{2015}))\\
+Yoksulluğa sebep olan birçok faktör mevcuttur. Bunlar arasında ön plana çıkanlar ise; ekonomik, işsizlik, göç, cinsiyet ve de eğitimdir. Yoksulluk olgusu tüm yönleriyle incelendiğinde, en önemli nedenin eğitimden kaynaklandığı söylenebilir. Bu bağlamda eğitimin ekonomi ve işsizlikle doğrudan ilişkili olduğu ifade edilebilir.Bu bağlamda söz konusu bireylerin yoksulluğun kısır döngüsüne girmelerine engel olma noktasında alınacak tedbirler ve uygulanacak politikalar hayati önem taşımaktadır. Yoksulluğun nesilden nesille bir miras olarak bırakılmamasın tek yolu ise eğitim seviyesinin yükseltilmesinden geçmektedir (\protect\hyperlink{ref-ocalguncel}{ÖCAL, t.y.})
+Öte yandan eğitim, insanların ekonomiye ve topluma katılma becerileri kazanmalarına yardımcı olur.Bulguları göz önüne alındığında, eğitim özünde geliri eşit dağıtmak için bir mihenk taşıdır ve yoksullara ekonomik büyümeden daha fazla yararlanma fırsatı sağlar.Bu nedenle eğitim politikaları, örgün ve yaygın eğitime katılımı artırmaya çalışırken, yoksullukla mücadelede önemli bir rol üstlenmeyi hedeflemeli (Bilenkisi vd. (\protect\hyperlink{ref-bilenkisi2015impact}{2015}))
+
+Sonuç olarak, yoksulluk ve eğitim birbiriyle ters orantılıdır.
+Aynı zamanda eğitimden yoksulluğa doğru ters nedensellik olabileceği gibi, yoksulluktan eğitime doğru da eşit derecede nedensellik olabilir. Örneğin, eğitime yapılan yatırım, insanların üretkenliğinin yanı sıra ücretleri veya geliri artırarak yoksulluğu azaltır. Ayrıca eğitim, insanların daha etkin üretim yapma kapasitelerini geliştiren bazı gerekli becerileri edinmelerini sağlar. Öte yandan yoksulluk, öğrencilere sağlanan kaynakları etkileyerek eğitimin kalitesini ve eğitime eşit erişimi kısıtlamaktadır(\protect\hyperlink{ref-citak2020causal}{Citak ve Duffy, 2020})
+
+Yoksulluk nedeniyle bireylerin yetersiz eğitim alması bir yandan yoksulluğu devam ettirici bir etki yaratırken; bir diğer yandan bu bireylerin topluma katkılarının da düşük düzeyde kalmasına neden olarak ülkenin kalkınmasını olumsuz yönde etkilemektedir. Bu nedenle yoksullukla mücadelede eğitim konusu sosyal politika alanında ve ekonomik kalkınmada önemli bir unsuru teşkil etmektedir(\protect\hyperlink{ref-erikli2016gencc}{ERİKLİ, 2016})
+
+\hypertarget{veri}{%
+\section{Veri}\label{veri}}
+
+Veri setimi TÜİK'in Gelir ve Yaşam Koşulları adlı araştırma çalışmasındaki istatistiki tablolardan edindim. Veri setimde Türkiye'deki nüfusun okur-yazar olma, lise veya dengi, yükseköğretim mezunu gibi eğitim durumlarını gösteren değişkenlerle beraber yoksulluk risklerini gösteren yoksul sayıları ve oranları bulunmaktadır. Değişkenlerin isimlerini özet tabloya ve grafiklere aktarmadan önce clean-names fonksiyonu özel karakterleri düzenledim. Sonrasında ise rename with fonksiyonu özel karakterlerde tekrardan bir düzenlemeye giderek değişkenlerde daha sade bir adlandırma yaptım ve özet istatistikleri içeren tabloya aktardım.
+
+Özet istatistiksel tabloya baktığımızda araştırma sorumu da destekleyen veriler bulunmaktadır. Tablodan eğitim ve yoksulluk arasındaki ilişkide eğitim düzeyi arttıkça yoksul sayısının da düştüğünü görebiliyoruz. Mesela eğitim düzeyinin ilk seviyesi olan illiterate olan okur-yazar olmayanın ile son seviyesi highereducation olan yükseköğretimi kıyaslarsak bu farkı net bir biçimde görebiliyoruz. illiterate4 değişkeninin yoksul sayısıdanki ortalaması 1912 iken highereducation\_8 değişkeninin 200. Bu eğitim ve yoksulluk arasındaki ilşkiyi bir kez daha ortaya açıkça koyuyor. Keza yine highschool or equivalent ile literate with no degree değişkenlerini incelediğimizde aynı sonuca ulaşabiliyoruz.
+
+\begin{table}[ht]
+\centering
+\caption{Özet İstatistikler} 
+\label{tab:ozet}
+\begin{tabular}{lccccc}
+  \toprule
+ & Ortalama & Std.Sap & Min & Medyan & Mak \\ 
+  \midrule
+highereducation\_14 & 2.38 & 1.33 & 1.00 & 2.00 & 6.00 \\ 
+  highereducation\_8 & 200.62 & 172.41 & 24.00 & 134.00 & 639.00 \\ 
+  highschool\_or\_equivalent\_13 & 8.18 & 2.56 & 4.00 & 8.00 & 13.00 \\ 
+  highschool\_or\_equivalent\_7 & 949.41 & 600.79 & 424.00 & 820.00 & 3708.00 \\ 
+  illiterate10 & 32.42 & 5.20 & 24.00 & 32.00 & 42.00 \\ 
+  illiterate4 & 1912.00 & 366.34 & 1203.00 & 1879.00 & 2571.00 \\ 
+  lessthan\_high\_school & 4821.00 & 1282.75 & 906.00 & 4799.00 & 6486.00 \\ 
+  lessthan\_high\_school\_2 & 17.12 & 3.82 & 12.00 & 19.50 & 24.00 \\ 
+  literatewith\_no\_degree\_11 & 29.85 & 5.05 & 22.00 & 29.50 & 37.00 \\ 
+  literatewith\_no\_degree\_5 & 1152.88 & 209.98 & 823.00 & 1196.00 & 1529.00 \\ 
+   \bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{yuxf6ntem-ve-veri-analizi}{%
+\section{Yöntem ve Veri Analizi}\label{yuxf6ntem-ve-veri-analizi}}
+
+\begin{figure}
+
+{\centering \includegraphics{final_files/figure-latex/unnamed-chunk-4-1} 
+
+}
+
+\caption{Grafik 1}\label{fig:unnamed-chunk-4-1}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics{final_files/figure-latex/unnamed-chunk-4-2} 
+
+}
+
+\caption{Grafik 1}\label{fig:unnamed-chunk-4-2}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics{final_files/figure-latex/unnamed-chunk-4-3} 
+
+}
+
+\caption{Grafik 1}\label{fig:unnamed-chunk-4-3}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics{final_files/figure-latex/unnamed-chunk-4-4} 
+
+}
+
+\caption{Grafik 1}\label{fig:unnamed-chunk-4-4}
+\end{figure}
+
+\begin{tabular}{l|c}
+\hline
+**Characteristic** & **N = 34**\\
+\hline
+years & \\
+\hline
+013 & 1 (5.9\%)\\
+\hline
+2006 & 1 (5.9\%)\\
+\hline
+2007 & 1 (5.9\%)\\
+\hline
+2008 & 1 (5.9\%)\\
+\hline
+2009 & 1 (5.9\%)\\
+\hline
+2010 & 1 (5.9\%)\\
+\hline
+2011 & 1 (5.9\%)\\
+\hline
+2012 & 1 (5.9\%)\\
+\hline
+2014 & 1 (5.9\%)\\
+\hline
+2015 & 1 (5.9\%)\\
+\hline
+2016 & 1 (5.9\%)\\
+\hline
+2017 & 1 (5.9\%)\\
+\hline
+2018 & 1 (5.9\%)\\
+\hline
+2019 & 1 (5.9\%)\\
+\hline
+2020 & 1 (5.9\%)\\
+\hline
+2021 & 1 (5.9\%)\\
+\hline
+2022 & 1 (5.9\%)\\
+\hline
+Unknown & 17\\
+\hline
+x15age\_risk\_of\_poverty & \\
+\hline
+\%50 - 50\% & 16 (48\%)\\
+\hline
+\%60 - 60\% & 17 (52\%)\\
+\hline
+Unknown & 1\\
+\hline
+numberof\_poors\_thousand\_person & \\
+\hline
+\%50 - 50\% & 1 (100\%)\\
+\hline
+Unknown & 33\\
+\hline
+illiterate4 & 1,879 (1,667, 2,222)\\
+\hline
+Unknown & 1\\
+\hline
+literatewith\_no\_degree\_5 & 1,196 (943, 1,319)\\
+\hline
+lessthan\_high\_school & 4,799 (3,794, 5,918)\\
+\hline
+highschool\_or\_equivalent\_7 & 820 (569, 1,041)\\
+\hline
+highereducation\_8 & 134 (62, 295)\\
+\hline
+povertyrate\_percent & \\
+\hline
+207 & 1 (100\%)\\
+\hline
+Unknown & 33\\
+\hline
+illiterate10 & 32.0 (28.0, 36.0)\\
+\hline
+Unknown & 1\\
+\hline
+literatewith\_no\_degree\_11 & 29.5 (25.0, 34.0)\\
+\hline
+lessthan\_high\_school\_2 & \\
+\hline
+12 & 4 (12\%)\\
+\hline
+13 & 4 (12\%)\\
+\hline
+14 & 8 (24\%)\\
+\hline
+19 & 1 (2.9\%)\\
+\hline
+20 & 9 (26\%)\\
+\hline
+21 & 7 (21\%)\\
+\hline
+24 & 1 (2.9\%)\\
+\hline
+highschool\_or\_equivalent\_13 & \\
+\hline
+4 & 1 (2.9\%)\\
+\hline
+5 & 5 (15\%)\\
+\hline
+6 & 6 (18\%)\\
+\hline
+7 & 1 (2.9\%)\\
+\hline
+8 & 6 (18\%)\\
+\hline
+9 & 5 (15\%)\\
+\hline
+10 & 5 (15\%)\\
+\hline
+12 & 2 (5.9\%)\\
+\hline
+13 & 3 (8.8\%)\\
+\hline
+highereducation\_14 & \\
+\hline
+1 & 10 (29\%)\\
+\hline
+2 & 11 (32\%)\\
+\hline
+3 & 7 (21\%)\\
+\hline
+4 & 3 (8.8\%)\\
+\hline
+5 & 2 (5.9\%)\\
+\hline
+6 & 1 (2.9\%)\\
+\hline
+x15 & \\
+\hline
+2 & 1 (100\%)\\
+\hline
+Unknown & 33\\
+\hline
+\end{tabular}
+
+\begin{figure}
+
+{\centering \includegraphics{final_files/figure-latex/unnamed-chunk-4-5} 
+
+}
+
+\caption{Grafik 1}\label{fig:unnamed-chunk-4-5}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics{final_files/figure-latex/unnamed-chunk-4-6} 
+
+}
+
+\caption{Grafik 1}\label{fig:unnamed-chunk-4-6}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics{final_files/figure-latex/unnamed-chunk-4-7} 
+
+}
+
+\caption{Grafik 1}\label{fig:unnamed-chunk-4-7}
+\end{figure}
+
+\hypertarget{a-tibble-34-x-3}{%
+\section{A tibble: 34 x 3}\label{a-tibble-34-x-3}}
+
+illiterate4 lessthan\_high\_school highereducation\_8
+1 1969 3783 24
+2 2486 5605 48
+3 1842 3392 31
+4 2426 5302 61
+5 1798 3647 29
+6 2447 5696 51
+7 2010 3916 54
+8 2571 6062 84
+9 1733 4055 50
+10 2359 5933 86
+\# i 24 more rows
+Rows: 34
+Columns: 15
+\$ years ``2006'', NA, ``2007'', NA, ``2008'', NA, ``20\textasciitilde{}
+\$ x15age\_risk\_of\_poverty ''\%50 - 50\%``,''\%60 - 60\%``,''\%50 - 50\%``, \textasciitilde{}
+\$ numberof\_poors\_thousand\_person NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}
+\$ illiterate4 1969, 2486, 1842, 2426, 1798, 2447, 201\textasciitilde{}
+\$ literatewith\_no\_degree\_5 1004, 1327, 919, 1263, 938, 1302, 1071,\textasciitilde{}
+\$ lessthan\_high\_school 3783, 5605, 3392, 5302, 3647, 5696, 391\textasciitilde{}
+\$ highschool\_or\_equivalent\_7 463, 825, 486, 807, 491, 796, 488, 815,\textasciitilde{}
+\$ highereducation\_8 24, 48, 31, 61, 29, 51, 54, 84, 50, 86,\textasciitilde{}
+\$ povertyrate\_percent NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}
+\$ illiterate10 33, 41, 31, 40, 30, 30, 32, 42, 29, 39,\textasciitilde{}
+\$ literatewith\_no\_degree\_11 28, 37, 25, 35, 24, 34, 27, 37, 27, 37,\textasciitilde{}
+\$ lessthan\_high\_school\_2 14, 21, 12, 20, 13, 21, 14, 21, 14, 21,\textasciitilde{}
+\$ highschool\_or\_equivalent\_13 5, 10, 5, 9, 5, 8, 5, 8, 4, 8, 6, 9, 6,\textasciitilde{}
+\$ highereducation\_14 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, \textasciitilde{}
+\$ x15 NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,\textasciitilde{}
+\includegraphics{final_files/figure-latex/unnamed-chunk-5-1.pdf}
+Call:
+lm(formula = illiterate4 \textasciitilde{} highereducation\_8, data = cy)
+
+Residuals:
+Min 1Q Median 3Q Max
+-635.61 -313.25 53.88 295.00 586.54
+
+Coefficients:
+Estimate Std. Error t value Pr(\textgreater\textbar t\textbar)\\
+(Intercept) 2043.3612 97.3388 20.992 \textless2e-16 ***
+highereducation\_8 -0.7012 0.4014 -1.747 0.0905 .\\
+---
+Signif. codes: 0 `\emph{\textbf{' 0.001 '}' 0.01 '}' 0.05 `.' 0.1 ' ' 1
+
+Residual standard error: 355.1 on 31 degrees of freedom
+(1 observation deleted due to missingness)
+Multiple R-squared: 0.08964, Adjusted R-squared: 0.06027
+F-statistic: 3.052 on 1 and 31 DF, p-value: 0.09052
+
+{[}1{]} ``illiterate4 = 2043.3612 + highereducation\_8 . -0.7012''
+
+\hypertarget{sonuuxe7}{%
+\section{Sonuç}\label{sonuuxe7}}
+
+Bu bölümde çalışmanızın sonuçlarını özetleyiniz. Sonuçlarınızın başlangıçta belirlediğiniz araştırma sorusuna ne derece cevap verdiğini ve ileride bu çalışmanın nasıl geliştirilebileceğini tartışınız.
+
+\textbf{Kaynakça bölümü Rmarkdown tarafından otomatik olarak oluşturulmaktadır. Taslak dosyada Kaynakça kısmında herhangi bir değişikliğe gerek yoktur.}
+
+\textbf{\emph{Taslakta bu cümleden sonra yer alan hiçbir şey silinmemelidir.}}
+
+\newpage
+
+\hypertarget{references}{%
+\section{Kaynakça}\label{references}}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-alpaydin2008turkiye}{}}%
+ALPAYDIN, Y. (2008). T{ü}rkiye'de yoksulluk ve e{ğ}itim ili{ş}kileri. \emph{{İ}lem Y{ı}ll{ı}k}, \emph{3}(3), 49-64.
+
+\leavevmode\vadjust pre{\hypertarget{ref-bilenkisi2015impact}{}}%
+Bilenkisi, F., Gungor, M. S. ve Tapsin, G. (2015). The Impact of Household Heads' Education Levels on the Poverty Risk: The Evidence from Turkey. \emph{Educational Sciences: Theory and Practice}, \emph{15}(2), 337-348.
+
+\leavevmode\vadjust pre{\hypertarget{ref-citak2020causal}{}}%
+Citak, F. ve Duffy, P. A. (2020). The causal effect of education on poverty: evidence from Turkey. \emph{Eastern Journal of European Studies}, \emph{11}(2), 251.
+
+\leavevmode\vadjust pre{\hypertarget{ref-ccokgezen2015gelicsmekte}{}}%
+ÇOKGEZEN, M. ve Erdene, O. (2015). Geli{ş}mekte olan {ü}lkelerde yayg{ı}n e{ğ}itimin yoksullu{ğ}u azaltma {ü}zerindeki etkisi. \emph{{Ç}ukurova {Ü}niversitesi {İ}ktisadi ve {İ}dari Bilimler Fak{ü}ltesi Dergisi}, \emph{19}(2), 47-64.
+
+\leavevmode\vadjust pre{\hypertarget{ref-erikli2016gencc}{}}%
+ERİKLİ, S. (2016). Gen{ç} yoksullu{ğ}unun temel belirleyicileri: E{ğ}itim ve d{ü}zg{ü}n i{ş}. \emph{Gazi {Ü}niversitesi {İ}ktisadi ve {İ}dari Bilimler Fak{ü}ltesi Dergisi}, \emph{18}(1), 283-302.
+
+\leavevmode\vadjust pre{\hypertarget{ref-ocalguncel}{}}%
+ÖCAL, Ş. K. (t.y.). G{Ü}NCEL SORUNLAR VE TARTI{Ş}MALAR.
+
+\end{CSLReferences}
+
+\end{document}
