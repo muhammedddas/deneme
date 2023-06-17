@@ -66,15 +66,16 @@ Aynı zamanda eğitimden yoksulluğa doğru ters nedensellik olabileceği gibi, 
   Yoksulluk nedeniyle bireylerin yetersiz eğitim alması bir yandan yoksulluğu devam ettirici bir etki yaratırken; bir diğer yandan bu bireylerin topluma katkılarının da düşük düzeyde kalmasına neden olarak ülkenin kalkınmasını olumsuz yönde etkilemektedir. Bu nedenle yoksullukla mücadelede eğitim konusu sosyal politika alanında ve ekonomik kalkınmada önemli bir unsuru teşkil etmektedir[@erikli2016gencc]
 
 # Veri 
-  Veri setimi TÜİK’in Gelir ve Yaşam Koşulları adlı araştırma çalışmasındaki istatistiki tablolardan edindim. Veri setimde Türkiye’deki nüfusun okur-yazar olma, lise veya dengi, yükseköğretim mezunu gibi eğitim durumlarını gösteren değişkenlerle beraber yoksulluk risklerini gösteren yoksul sayıları ve oranları bulunmaktadır. Değişkenlerin isimlerini özet tabloya ve grafiklere aktarmadan önce clean-names fonksiyonu özel karakterleri düzenledim. Sonrasında ise rename with fonksiyonu özel karakterlerde tekrardan bir düzenlemeye giderek değişkenlerde daha sade bir adlandırma yaptım ve özet istatistikleri içeren tabloya aktardım.
-  Özet istatistiksel tabloya baktığımızda araştırma sorumu da destekleyen veriler bulunmaktadır.  Tablodan eğitim ve yoksulluk arasındaki ilişkide eğitim düzeyi arttıkça yoksul sayısının da düştüğünü görebiliyoruz. Mesela eğitim düzeyinin ilk seviyesi olan illiterate olan okur-yazar olmayanın ile son seviyesi highereducation olan yükseköğretimi kıyaslarsak bu farkı net bir biçimde görebiliyoruz. Keza yine highschool or equivalent ile literate with no degree değişkenlerini incelediğimizde aynı sonuca ulaşabiliyoruz. 
+   Veri setimi TÜİK’in Gelir ve Yaşam Koşulları adlı araştırma çalışmasındaki istatistiki tablolardan edindim. Veri setimde Türkiye’deki nüfusun okur-yazar olma, lise veya dengi, yükseköğretim mezunu gibi eğitim durumlarını gösteren değişkenlerle beraber yoksulluk risklerini gösteren yoksul sayıları ve oranları bulunmaktadır. Değişkenlerin isimlerini özet tabloya ve grafiklere aktarmadan önce clean-names fonksiyonu özel karakterleri düzenledim. Sonrasında ise rename with fonksiyonu özel karakterlerde tekrardan bir düzenlemeye giderek değişkenlerde daha sade bir adlandırma yaptım ve özet istatistikleri içeren tabloya aktardım.
+
+  Özet istatistiksel tabloya baktığımızda araştırma sorumu da destekleyen veriler bulunmaktadır.  Tablodan eğitim ve yoksulluk arasındaki ilişkide eğitim düzeyi arttıkça yoksul sayısının da düştüğünü görebiliyoruz. Mesela eğitim düzeyinin ilk seviyesi olan illiterate olan okur-yazar olmayanın ile son seviyesi highereducation olan yükseköğretimi kıyaslarsak bu farkı net bir biçimde görebiliyoruz. illiterate4 değişkeninin yoksul sayısıdanki ortalaması 1912 iken highereducation_8 değişkeninin 200. Bu eğitim ve yoksulluk arasındaki ilşkiyi bir kez daha ortaya açıkça koyuyor. Keza yine highschool or equivalent ile literate with no degree değişkenlerini incelediğimizde aynı sonuca ulaşabiliyoruz. 
 
 
 ```{r, echo=FALSE} 
 library(tidyverse)
 library(here)
 survey <- read_csv("https://raw.githubusercontent.com/muhammedddas/deneme/main/data/survey.csv")
-tibble(expand.grid(years=c( '2011', '2010' )))
+tibble(expand.grid(years=c()))
 
 
 
@@ -99,7 +100,7 @@ cy <- cy %>%
 ```
 
 
-Rmd dosyasında kod bloklarının bazılarında kod seçeneklerinin düzenlendiğine dikkat edin. 
+ 
 
 ```{r, echo=FALSE}
 library(xtable) 
@@ -108,7 +109,7 @@ library(summarytools)
 st_options(lang = "tr")
 ```
 
-`echo=FALSE` seçeneği ile kodların türetilen pdf dosyasında görünmesini engelleyin ve sonuçlarınızı tablo halinde rapor edin.
+
 
 ```{r results='asis', echo=FALSE} 
 echo=FALSE
@@ -148,22 +149,23 @@ $$
 
 ```{r plot, echo=FALSE, fig.align='center', fig.cap='Grafik 1'}
 cy %>% 
-ggplot(aes(x =highereducation_14  , y = illiterate10 )) +
+ggplot(aes(x =highereducation_8  , y = illiterate4 )) +
   geom_point(na.rm = TRUE) +
   geom_smooth() +
-  scale_x_continuous("highereducation_14") + 
-  scale_y_continuous("illiterate10")
+  scale_x_continuous("Yükseköğretim yoksul sayısı") + 
+  scale_y_continuous("Okur-yazar olmayan yoksul sayısı ")
 
 ggplot(cy) +
-  aes(x =illiterate10  ) +
-  geom_histogram( na.rm = TRUE)
+  aes(x = lessthan_high_school ) +
+  geom_histogram( na.rm = TRUE )
+
 
 cy %>% 
-ggplot(aes(x = highereducation_8  , y = illiterate4 )) +
+ggplot(aes(x = highschool_or_equivalent_13  , y = literatewith_no_degree_11)) +
   geom_point(na.rm = TRUE) +
   geom_smooth() +
-  scale_x_continuous("highereducation_8") + 
-  scale_y_continuous("illiterate4")
+  scale_x_continuous("Lise ve dengi okul yoksulluk oranı") + 
+  scale_y_continuous("Bir okul bitirmeyen yoksulluk oranı")
 
 ggplot(cy) +
   aes(x =highereducation_8  ) +
@@ -171,7 +173,7 @@ ggplot(cy) +
 
 
  ggplot(cy, aes(x = highereducation_8 )) +
-  geom_histogram(bins = 5, na.rm = TRUE) +
+  geom_histogram(bins = 20, na.rm = TRUE) +
   scale_x_continuous(name = "highereducation oranı") +
   scale_y_continuous(name = "illeration oranı") +
   ggtitle(" Eğitimine göre yoksulluk histogramı")
@@ -186,6 +188,10 @@ cy %>%
   select(illiterate4, highereducation_8) %>% 
   GGally::ggpairs()
 
+
+
+ggplot(cy, aes(x=illiterate4, y=highereducation_8)) +
+  geom_line()
 
 
 
@@ -205,30 +211,12 @@ cy %>%
 
 
 
-
-
-shapiro.test(cy$illiterate10)
-
-shapiro.test(cy$highereducation_14)
-
-
-tibble(x = rnorm(100)) %>% 
-  ggplot() +
-  aes(sample = x) +
-  stat_qq() +
-  stat_qq_line() +
-  labs(title = "Normal Dağılım için Q-Q Grafiği")
 ```
 
-
-
-
-          
           
           
           
 ```{r results='asis', echo=FALSE}     
-
 cy %>%
  select(illiterate4, lessthan_high_school , highereducation_8)
 
@@ -242,7 +230,6 @@ cy %>%
 
 
 score_mod <- lm(illiterate4 ~  highereducation_8 , data = cy)
-
 summary(score_mod)
 
 
@@ -260,10 +247,14 @@ equation <- paste("illiterate4 =", round(intercept, 4), "+", paste(coef_labels, 
 print(equation)
 
 
+cy %>% 
+  ggplot(aes(illiterate4, highereducation_8)) +
+  geom_point() +
+  geom_smooth(method = "lm") 
 
 
-ggplot(cy, aes(x=illiterate4, y=highereducation_8)) +
-  geom_line()
+
+
 
 ```
 
